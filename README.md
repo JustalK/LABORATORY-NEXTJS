@@ -15,4 +15,6 @@ https://spacejelly.dev/posts/how-to-create-pages-in-next-js-with-static-dynamic-
 https://www.youtube.com/watch?v=O2s_LvqQQgM
 https://swr.vercel.app/docs/with-nextjs
 https://randomuser.me/
+https://jsonplaceholder.typicode.com/
+https://www.youtube.com/watch?v=eMwTEo6AjDc
 https://swr.vercel.app/docs/global-configuration

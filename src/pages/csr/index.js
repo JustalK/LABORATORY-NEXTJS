@@ -2,8 +2,9 @@
 * The ssg page
 * @module pages/ssg
 */
-import Users from '@src/pages/ssg/Users'
+import Users from '@src/pages/csr/Users'
 import { fetcher } from '@src/services/fetcher'
+import { SWRConfig } from 'swr'
 import { GET_USERS_ENDPOINT } from '@src/services/users'
 /**
 * @function getStaticProps
@@ -13,10 +14,12 @@ import { GET_USERS_ENDPOINT } from '@src/services/users'
 
 export async function getStaticProps () {
   // `getStaticProps` is executed on the server side.
-  const users = await fetcher(GET_USERS_ENDPOINT)
+  const posts = await fetcher(GET_USERS_ENDPOINT)
   return {
     props: {
-      users
+      fallback: {
+        [GET_USERS_ENDPOINT]: posts
+      }
     }
   }
 }
@@ -26,13 +29,13 @@ export async function getStaticProps () {
 * render a static page (SSG : Static site generation)
 * @return {Object} The html of the basic page
 **/
-const Ssg = ({ users }) => {
+const Ssg = ({ fallback }) => {
   return (
-    <>
-      <h1>Static site generation</h1>
-      <span>This page has been rendered at build time and will always give the same version how many time your reload the page.</span>
-      <Users users={users} />
-    </>
+    <SWRConfig value={{ fallback }}>
+      <h1>Client Side Rendering</h1>
+      <span>This page use the page on th server while rebuilding the new page with fresh data. You can try to slow down your network to mobile in the google chrome developer tool and refresh the page.</span>
+      <Users />
+    </SWRConfig>
   )
 }
 

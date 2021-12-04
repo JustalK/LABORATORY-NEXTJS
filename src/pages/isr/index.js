@@ -17,20 +17,21 @@ export async function getStaticProps () {
   return {
     props: {
       users
-    }
+    },
+    revalidate: 10
   }
 }
 
 /**
 * @function Basic
-* render a static page (SSG : Static site generation)
+* render a incremental static regeneration page
 * @return {Object} The html of the basic page
 **/
 const Ssg = ({ users }) => {
   return (
     <>
-      <h1>Static site generation</h1>
-      <span>This page has been rendered at build time and will always give the same version how many time your reload the page.</span>
+      <h1>Incremental static regeneration</h1>
+      <span>This page use the SSG version first and after a certain amount of time (10s here), the page will be rebuild. You can try to reload the page multiple time over 15s for understanding what happen in the back.</span>
       <Users users={users} />
     </>
   )

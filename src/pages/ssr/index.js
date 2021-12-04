@@ -2,7 +2,7 @@
 * The ssg page
 * @module pages/ssg
 */
-import Users from '@src/pages/ssg/Users'
+import Users from '@src/pages/ssr/Users'
 import { fetcher } from '@src/services/fetcher'
 import { GET_USERS_ENDPOINT } from '@src/services/users'
 /**
@@ -11,7 +11,7 @@ import { GET_USERS_ENDPOINT } from '@src/services/users'
 * @return {Post[]} All the pages in the database
 **/
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   // `getStaticProps` is executed on the server side.
   const users = await fetcher(GET_USERS_ENDPOINT)
   return {
@@ -29,8 +29,8 @@ export async function getStaticProps () {
 const Ssg = ({ users }) => {
   return (
     <>
-      <h1>Static site generation</h1>
-      <span>This page has been rendered at build time and will always give the same version how many time your reload the page.</span>
+      <h1>Server Side Rendering</h1>
+      <span>This page will be build at every request with new fresh data evertyime. You can try to reload the page multiple time.</span>
       <Users users={users} />
     </>
   )
