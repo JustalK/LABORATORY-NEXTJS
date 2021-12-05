@@ -5,6 +5,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #0000FF;
+    text-decoration: none;
+  }
 }
 
 .main {
@@ -14,6 +21,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.subtitle {
+  margin-bottom: 20px;
 }
 
 .footer {
@@ -33,11 +44,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
 }
 
 .title a:hover,
