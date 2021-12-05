@@ -104,10 +104,6 @@ $ npm run start
 - **npm run lint**: Run the linter and fix the errors of coding style (if possible)
 - **npm run build**: Build the project
 - **npm run build:doc**: Build the documentation from the comments in the code
-- **npm run test**: Run a server on port 3000 and run the e2e test
-- **npm run cypress:run**: Run the test in the console and create summary for code coverage
-- **npm run cypress:open**: Run the cypress browser
-- **npm run cypress:coverage**: Check the code coverage of the project (after being generated with cypress)
 - **npm run check-update**:  Check if the package are up to date
 
 ## Links
