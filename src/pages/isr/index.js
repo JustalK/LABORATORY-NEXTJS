@@ -1,33 +1,36 @@
 /**
-* The ssg page
-* @module pages/ssg
+* The isr page
+* The page will rendered the static page on the server.
+* And will revalidate the page every 10s meaning the page will be rerendered on the server side.
+*
+* For example, if user A visits the page and then user B visits the page 1min after the user A, the page will be rebuild on the server side.
+* Another example, if user A visits the page and then user B visits the page 5s after user A, the page served to both user will be the static one on the server.
+* @module pages/isr
 */
-import Users from '@src/pages/ssg/Users'
+import Users from '@src/components/Users'
 import { fetcher } from '@src/services/fetcher'
 import { GET_USERS_ENDPOINT } from '@src/services/users'
 /**
 * @function getStaticProps
-* Get all the pages at build time
-* @return {Post[]} All the pages in the database
+* Get the users at build time, this function is executed on the server side
+* @return {Users[]} 10 random users from the API
 **/
-
 export async function getStaticProps () {
-  // `getStaticProps` is executed on the server side.
   const users = await fetcher(GET_USERS_ENDPOINT)
   return {
     props: {
       users
     },
-    revalidate: 10
+    revalidate: 10 // Revalidate the page every 10s
   }
 }
 
 /**
-* @function Basic
+* @function Isr
 * render a incremental static regeneration page
-* @return {Object} The html of the basic page
+* @return {Object} The html of the isr page
 **/
-const Ssg = ({ users }) => {
+const Isr = ({ users }) => {
   return (
     <>
       <h1>Incremental static regeneration</h1>
@@ -37,4 +40,4 @@ const Ssg = ({ users }) => {
   )
 }
 
-export default Ssg
+export default Isr

@@ -1,12 +1,14 @@
 /**
-* The basic page
+* The Users components
+* I use this component for isr/ssg/ssr (not for csr).
+* It simply uses the data received and show them with a listing
 * @module pages/basic
 */
 
 /**
-* @function Basic
-* render the basic page
-* @return {Object} The html of the basic page
+* @function Users
+* render the users
+* @return {Object} The emails of the users in a list
 **/
 const Users = ({ users }) => {
   return (

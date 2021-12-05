@@ -1,5 +1,7 @@
 /**
 * The basic page
+* When we dont use any function from next.js
+* The page will be served as a static page, no rerendered will be done on the server.
 * @module pages/basic
 */
 
@@ -12,7 +14,7 @@ const Basic = () => {
   return (
     <div>
       <h1>Static Page (without data)</h1>
-      <span>This page use SSG and does not have any data.</span>
+      <span>This page has been compiled at build time. The page is static.</span>
     </div>
   )
 }
