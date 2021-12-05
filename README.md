@@ -1,4 +1,4 @@
-# LABORATORY - NEXTJS
+# LABORATORY - NEXTJS - MODES
 
 This project is a really simple tutorial for explaining the differences between the differents way of serving the page on `Next.js`.
 There are 4 ways of building our pages :
